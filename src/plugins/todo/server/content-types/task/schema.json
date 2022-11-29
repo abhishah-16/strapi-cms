@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tasks",
+  "info": {
+    "singularName": "task",
+    "pluralName": "tasks",
+    "displayName": "task"
+  },
+  "options": {
+    "draftAndPublish": true,
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "isDone": {
+      "type": "boolean"
+    },
+    "related": {
+      "type": "relation",
+      "relation": "morphToOne"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reminders",
+  "info": {
+    "singularName": "reminder",
+    "pluralName": "reminders",
+    "displayName": "reminder"
+  },
+  "options": {
+    "draftAndPublish": false,
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "datetime": {
+      "type": "datetime"
+    },
+    "date": {
+      "type": "date"
+    },
+    "isdatepassed": {
+      "type": "boolean"
+    }
+  }
+}
