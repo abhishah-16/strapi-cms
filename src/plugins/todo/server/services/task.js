@@ -28,4 +28,7 @@ module.exports = ({ strapi }) => ({
   async delete(id) {
     return await strapi.entityService.delete("plugin::todo.task", id);
   },
+  async updateStatus(id, data) {
+    return await strapi.entityService.update("plugin::todo.task", id, data)
+  }
 });

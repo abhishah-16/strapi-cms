@@ -61,5 +61,15 @@ module.exports = ({ strapi }) => ({
       ctx.throw(500, err);
     }
   },
+  async updateStatus(ctx) {
+    try {
+      ctx.body = await strapi
+        .plugin("todo")
+        .service("task")
+        .updateStatus(ctx.params.id, ctx.request.body)
+    } catch (error) {
+      ctx.throw(500, error)
+    }
+  }
 
 });
