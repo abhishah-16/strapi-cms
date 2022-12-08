@@ -18,5 +18,17 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
         return {
             message: "confirmed"
         }
+    },
+    async create(ctx, next) {
+        const user = ctx.state.user
+        const { products } = ctx.request.body.data
+        console.log(products);
+        const order = await strapi.entityService.create("api::order.order", {
+            data: {
+                products,
+                owner: user.id
+            }
+        })
+        return { order }
     }
 }));
