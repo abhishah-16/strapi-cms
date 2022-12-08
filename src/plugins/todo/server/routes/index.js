@@ -64,13 +64,14 @@ module.exports = [
       auth: false,
     },
   },
+
   {
-    mathod: "PUT",
+    method: "PUT",
     path: "/updateStatus/:id",
     handler: "task.updateStatus",
     config: {
       policies: [],
-      auth: false
-    }
-  }
+      auth: false,
+    },
+  },
 ];

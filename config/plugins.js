@@ -7,8 +7,16 @@ module.exports = {
       enabled: true,
       resolve: './src/plugins/todo'
     },
-    'nodedeploy': {
-      enabled: true,
-      resolve: './src/plugins/nodedeploy'
+    graphql: {
+      config: {
+        endpoint: '/graphql',
+        shadowCRUD: true,
+        playgroundAlways: false,
+        depthLimit: 7,
+        amountLimit: 100,
+        apolloServer: {
+          tracing: false,
+        },
+      },
     },
   }
