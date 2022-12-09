@@ -1,35 +1,30 @@
-'use strict';
+//  ./api/order/middlewares/ratelimit.js
 
-/**
- * `ratelimit` middleware
- */
-
-module.exports = (config, { strapi }) => {
-  async (ctx, next) => {
-    console.log('hello');
-    strapi.log.info('In ratelimit middleware.');
-    const ratelimit = require("koa2-ratelimit").RateLimit
-    const message = [
-      {
-        messages: [
-          {
-            id: "Auth.form.error.ratelimit",
-            message: "Too many attempts, Please try again in a minute"
-          },
-        ],
-      },
-    ]
-    return ratelimit.middleware(
-      Object.assign(
-        {},
+"use strict";
+module.exports =
+  (config, { strapi }) =>
+    async (ctx, next) => {
+      const ratelimit = require("koa2-ratelimit").RateLimit;
+      const message = [
         {
-          interval: 1 * 60 * 1000,
-          max: 5,
-          prefixKey: `${ctx.request.path}:${ctx.request.ip}`,
-          message,
+          messages: [
+            {
+              id: "Auth.form.error.ratelimit",
+              message: "Too many attempts, please try again in a minute.",
+            },
+          ],
         },
-        config
-      )
-    )(ctx, next)
-  };
-};
+      ];
+      return ratelimit.middleware(
+        Object.assign(
+          {},
+          {
+            interval: 1 * 60 * 1000,
+            max: 5,
+            prefixKey: `${ctx.request.path}:${ctx.request.ip}`,
+            message,
+          },
+          config
+        )
+      )(ctx, next);
+    };
