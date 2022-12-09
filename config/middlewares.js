@@ -9,7 +9,4 @@ module.exports = [
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
-  {
-    resolve: './src/api/order/middlewares/ratelimit',
-  },
 ];

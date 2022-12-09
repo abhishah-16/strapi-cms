@@ -9,7 +9,6 @@ const { PolicyError } = utils.errors
 
 module.exports = async (policyContext, config, { strapi }) => {
   strapi.log.info('In is-owner policy.');
-
   //* get id from params
   const { id } = policyContext.request.params
 
