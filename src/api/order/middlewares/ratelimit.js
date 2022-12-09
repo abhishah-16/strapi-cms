@@ -1,9 +1,10 @@
-//  ./api/order/middlewares/ratelimit.js
 
+//* middleware for confirmOrder api -> you can not do more than 5 request in one minute
 "use strict";
 module.exports =
   (config, { strapi }) =>
     async (ctx, next) => {
+      strapi.log.info('In ratelimit middleware.');
       const ratelimit = require("koa2-ratelimit").RateLimit;
       const message = [
         {
