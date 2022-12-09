@@ -20,6 +20,5 @@ module.exports = {
   routes,
   services,
   contentTypes,
-
   middlewares,
 };
