@@ -5,8 +5,8 @@
  */
 
 module.exports = (config, { strapi }) => {
-  // Add your own logic here.
   async (ctx, next) => {
+    console.log('hello');
     strapi.log.info('In ratelimit middleware.');
     const ratelimit = require("koa2-ratelimit").RateLimit
     const message = [

@@ -7,7 +7,8 @@ module.exports = {
       path: "/orders/confirm/:id",
       handler: "order.confirmOrder",
       config: {
-        policies: ["api::order.is-owner"]
+        policies: ["api::order.is-owner"],
+        middlewares: ["api::order.ratelimit"]
       }
     }
   ]
