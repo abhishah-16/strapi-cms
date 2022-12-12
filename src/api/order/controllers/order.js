@@ -26,7 +26,7 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
         }
     },
 
-    //* modify core create function
+    //* modify core create controller
     async create(ctx, next) {
         const user = ctx.state.user
         const { products } = ctx.request.body.data
@@ -39,5 +39,13 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
             }
         })
         return { order }
+    },
+
+    async find(ctx) {
+        const { data, meta } = await super.find(ctx);
+        const order_data = data.filter((d) => {
+            return d.attributes.confirmed === false
+        })
+        return order_data
     }
 }));
