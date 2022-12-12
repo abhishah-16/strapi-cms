@@ -5,7 +5,11 @@ module.exports =
   (config, { strapi }) =>
     async (ctx, next) => {
       strapi.log.info('In ratelimit middleware.');
+
+      //* koa -ratelimit
       const ratelimit = require("koa2-ratelimit").RateLimit;
+
+      // * message for response
       const message = [
         {
           messages: [
@@ -16,6 +20,8 @@ module.exports =
           ],
         },
       ];
+
+      // * ratelimit middleware
       return ratelimit.middleware(
         Object.assign(
           {},

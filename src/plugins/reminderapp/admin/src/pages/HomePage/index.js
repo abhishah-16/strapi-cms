@@ -17,7 +17,6 @@ import Pencil from '@strapi/icons/Pencil';
 import Trash from '@strapi/icons/Trash';
 // import EditModal from '../../components/EditModal';
 function HomePage() {
-
   const [reminderList, setReminder] = React.useState([]);
   const [ModalVisible, SetModalVisible] = React.useState(false);
   const [isEdit, setIsEdit] = React.useState(false)
