@@ -41,6 +41,7 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
         return { order }
     },
 
+    //* modify core find controller
     async find(ctx) {
         const { data, meta } = await super.find(ctx);
         const order_data = data.filter((d) => {
